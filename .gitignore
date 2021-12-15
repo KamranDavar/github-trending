@@ -28,3 +28,4 @@ yarn-error.log*
 /.idea/watcherTasks.xml
 /.idea/codeStyles/Project.xml
 /.idea/codeStyles/codeStyleConfig.xml
+/.idea/prettier.xml
