@@ -21,11 +21,4 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-/.idea/github-trending.iml
-/.idea/modules.xml
-/.idea/inspectionProfiles/Project_Default.xml
-/.idea/vcs.xml
-/.idea/watcherTasks.xml
-/.idea/codeStyles/Project.xml
-/.idea/codeStyles/codeStyleConfig.xml
-/.idea/prettier.xml
+/.idea

@@ -1,0 +1,1 @@
+export { GithubTrends } from './GithubTrends'
