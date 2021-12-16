@@ -1,5 +1,5 @@
 import ghtClient from './githubTrending.client'
-import huchenmeGhtClient from './huchenmeGithubTrending.client'
+import huchenGhtClient from './huchenGithubTrending.client'
 
 interface developersQueryParamsType {
   since?: string
@@ -23,9 +23,9 @@ export const GithubTrendingService = {
     return ghtClient.get(url, { params: queryParams })
   },
   getLang() {
-    return huchenmeGhtClient.get('/languages')
+    return huchenGhtClient.get('/languages')
   },
   getSpokenLang() {
-    return huchenmeGhtClient.get('/spoken_languages')
+    return huchenGhtClient.get('/spoken_languages')
   },
 }
