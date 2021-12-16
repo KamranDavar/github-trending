@@ -1,7 +1,6 @@
 import React, { FC } from 'react'
+import { childrenType } from '../../interfaces'
 
-type propsType = any
-
-export const Content: FC<propsType> = () => {
-  return <div>Content</div>
+export const Content: FC<childrenType> = ({ children }) => {
+  return <div>{children}</div>
 }

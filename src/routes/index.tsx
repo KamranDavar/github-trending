@@ -13,7 +13,7 @@ const Router: FC<propsType> = () => {
       <Content>
         <Routes>
           <Route path="/" element={<GithubTrends />} />
-          {/*<Route element={<Error404 />} />*/}
+          <Route path="/*" element={<h1>Not Found</h1>} />
         </Routes>
       </Content>
       <Footer />
