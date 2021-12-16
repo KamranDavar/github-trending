@@ -6,4 +6,14 @@
     color: inherit;
     border-color: $gray-500;
   }
+
+  .header {
+    display: flex;
+
+    .filters {
+      display: flex;
+      flex-grow: 1;
+      justify-content: flex-end;
+    }
+  }
 }
