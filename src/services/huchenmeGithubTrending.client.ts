@@ -2,7 +2,7 @@ import axios from 'axios'
 import { toast } from 'react-toastify'
 
 const githubTrendingClient = axios.create({
-  baseURL: 'https://gh-trending-api.herokuapp.com',
+  baseURL: 'https://ghapi.huchen.dev',
   headers: {
     'Content-type': 'application/json',
   },
