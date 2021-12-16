@@ -12,7 +12,6 @@ interface repositoriesQueryParamsType {
   language?: langType
 }
 
-
 export const GithubTrendingService = {
   getDevelopers(queryParams: developersQueryParamsType) {
     return huchenGhtClient.get('/developers', { params: queryParams })
