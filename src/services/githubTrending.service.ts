@@ -1,31 +1,29 @@
-import ghtClient from './githubTrending.client'
 import huchenGhtClient from './huchenGithubTrending.client'
 
+type langType = string | undefined
 interface developersQueryParamsType {
   since?: string
+  language?: langType
 }
 
 interface repositoriesQueryParamsType {
   since?: string
-  spoken_language_code?: string | undefined
+  spoken_language_code?: langType
+  language?: langType
 }
 
-type langType = string | undefined
 
 export const GithubTrendingService = {
-  getDevelopers(lang: langType, queryParams: developersQueryParamsType) {
-    const url = lang ? `/developers/${lang}` : '/developers'
-
-    return ghtClient.get(url, { params: queryParams })
+  getDevelopers(queryParams: developersQueryParamsType) {
+    return huchenGhtClient.get('/developers', { params: queryParams })
   },
-  getRepositories(lang: langType, queryParams: repositoriesQueryParamsType) {
-    const url = lang ? `/repositories/${lang}` : '/repositories'
-    return ghtClient.get(url, { params: queryParams })
+  getRepositories(queryParams: repositoriesQueryParamsType) {
+    return huchenGhtClient.get('/repositories', { params: queryParams })
   },
-  getLang() {
+  getLanguages() {
     return huchenGhtClient.get('/languages')
   },
-  getSpokenLang() {
+  getSpokenLanguages() {
     return huchenGhtClient.get('/spoken_languages')
   },
 }
