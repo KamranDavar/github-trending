@@ -3,6 +3,7 @@ import { Banner, Filter, List } from '../components'
 import { GithubTrendingService } from '../services/githubTrending.service'
 import { useQuery } from 'react-query'
 import { ListSkeleton } from '../components/ListSkeleton'
+import { dateRange, programmingLanguages, spokenLanguages } from '../staticData'
 
 type propsType = any
 
@@ -27,9 +28,23 @@ export const GithubTrends: FC<propsType> = () => {
       ) : (
         <List
           filters={[
-            <Filter key={0} value={lang} setValue={setLang} items={[]} />,
-            <Filter key={1} value={sLang} setValue={setSLang} items={[]} />,
-            <Filter key={2} value={range} setValue={setRange} items={[]} />,
+            <Filter
+              key={0}
+              value={lang}
+              setValue={setLang}
+              items={programmingLanguages}
+              label="Spoken Language"
+              hasInput={true}
+            />,
+            <Filter
+              key={1}
+              value={sLang}
+              setValue={setSLang}
+              items={spokenLanguages}
+              label="Language"
+              hasInput={true}
+            />,
+            <Filter key={2} value={range} setValue={setRange} items={dateRange} label="Date range" hasInput={false} />,
           ]}
           activeBtn={0}
         />
