@@ -3,6 +3,7 @@ import ListGroup from 'react-bootstrap/ListGroup'
 import Container from 'react-bootstrap/Container'
 import ButtonGroup from 'react-bootstrap/ButtonGroup'
 import Button from 'react-bootstrap/Button'
+import { Link as Link } from 'react-router-dom'
 
 type propsType = {
   filters?: ReactNode[] | []
@@ -16,8 +17,12 @@ export const List: FC<propsType> = ({ filters, activeBtn }) => {
         <ListGroup>
           <ListGroup.Item className="header">
             <ButtonGroup aria-label="Basic example">
-              <Button variant={activeBtn === 0 ? 'primary' : 'outline-dark'}>Repositories</Button>
-              <Button variant={activeBtn === 1 ? 'primary' : 'outline-dark'}>Developers</Button>
+              <Link to="/">
+                <Button variant={activeBtn === 0 ? 'primary' : 'outline-dark'}>Repositories</Button>
+              </Link>
+              <Link to="/developers">
+                <Button variant={activeBtn === 1 ? 'primary' : 'outline-dark'}>Developers</Button>
+              </Link>
             </ButtonGroup>
             <div className="filters">{filters}</div>
           </ListGroup.Item>

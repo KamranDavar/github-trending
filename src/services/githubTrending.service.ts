@@ -1,6 +1,7 @@
-import huchenGhtClient from './huchenGithubTrending.client'
+import ghtClient from './githubTrending.client'
 
 type langType = string | undefined
+
 interface developersQueryParamsType {
   since?: string
   language?: langType
@@ -14,15 +15,15 @@ interface repositoriesQueryParamsType {
 
 export const GithubTrendingService = {
   getDevelopers(queryParams: developersQueryParamsType) {
-    return huchenGhtClient.get('/developers', { params: queryParams })
+    return ghtClient.get('/developers', { params: queryParams })
   },
   getRepositories(queryParams: repositoriesQueryParamsType) {
-    return huchenGhtClient.get('/repositories', { params: queryParams })
+    return ghtClient.get('/repositories', { params: queryParams })
   },
-  getLanguages() {
-    return huchenGhtClient.get('/languages')
-  },
-  getSpokenLanguages() {
-    return huchenGhtClient.get('/spoken_languages')
-  },
+  // getLanguages() {
+  //   return ghtClient.get('/languages')
+  // },
+  // getSpokenLanguages() {
+  //   return ghtClient.get('/spoken_languages')
+  // },
 }
