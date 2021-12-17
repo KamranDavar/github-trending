@@ -7,10 +7,17 @@ import { ListSkeleton } from '../components/ListSkeleton'
 type propsType = any
 
 export const GithubTrends: FC<propsType> = () => {
-  const [queryParams, setQueryParams] = useState({})
+  const [lang, setLang] = useState('javascript')
+  const [sLang, setSLang] = useState('fa')
+  const [range, setRange] = useState('daily')
 
-  // const data = GithubTrendingService.getRepositories(queryParams)
-  const query = useQuery(['Repositories', queryParams], () => GithubTrendingService.getRepositories(queryParams))
+  const query = useQuery(['Repositories', lang, sLang, range], () =>
+    GithubTrendingService.getRepositories({
+      language: lang,
+      spoken_language_code: sLang,
+      since: range,
+    })
+  )
   console.log('render GithubTrends')
   return (
     <div className="gh-trends">
@@ -18,7 +25,14 @@ export const GithubTrends: FC<propsType> = () => {
       {query.isLoading ? (
         <ListSkeleton />
       ) : (
-        <List filters={[<Filter key={0} />, <Filter key={1} />, <Filter key={2} />]} activeBtn={0} />
+        <List
+          filters={[
+            <Filter key={0} value={lang} setValue={setLang} items={[]} />,
+            <Filter key={1} value={sLang} setValue={setSLang} items={[]} />,
+            <Filter key={2} value={range} setValue={setRange} items={[]} />,
+          ]}
+          activeBtn={0}
+        />
       )}
     </div>
   )
