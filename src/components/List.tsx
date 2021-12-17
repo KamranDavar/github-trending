@@ -18,10 +18,14 @@ export const List: FC<propsType> = ({ filters, activeBtn }) => {
           <ListGroup.Item className="header">
             <ButtonGroup aria-label="Basic example">
               <Link to="/">
-                <Button variant={activeBtn === 0 ? 'primary' : 'outline-dark'}>Repositories</Button>
+                <Button variant={activeBtn === 0 ? 'primary' : 'outline-light'} className="left" size="sm">
+                  Repositories
+                </Button>
               </Link>
               <Link to="/developers">
-                <Button variant={activeBtn === 1 ? 'primary' : 'outline-dark'}>Developers</Button>
+                <Button variant={activeBtn === 1 ? 'primary' : 'outline-light'} className="right" size="sm">
+                  Developers
+                </Button>
               </Link>
             </ButtonGroup>
             <div className="filters">{filters}</div>

@@ -13,17 +13,20 @@ type propsType = {
 export const Filter: FC<propsType> = ({ value, setValue, items, label, hasInput }) => {
   const [search, setSearch] = useState<any>()
 
+  const currentItemName = items.find((item) => item.value === value)
   items = search ? items.filter((item) => item.label.toLowerCase().includes(search.toLowerCase())) : items
-
   return (
     <div>
       <Dropdown>
-        <Dropdown.Toggle variant="outline-dark" size="sm">
-          {`${label}: ${value}`}
+        <Dropdown.Toggle variant="dark" size="sm">
+          {`${label}: ${currentItemName?.label}`}
         </Dropdown.Toggle>
-
         <Dropdown.Menu>
-          {hasInput && <Form.Control placeholder="Search" value={search} onChange={(e) => setSearch(e.target.value)} />}
+          {hasInput && (
+            <div className="input-container">
+              <Form.Control placeholder="Search" value={search} onChange={(e) => setSearch(e.target.value)} />
+            </div>
+          )}
           {items.map((item, index) => (
             <Dropdown.Item
               key={index}

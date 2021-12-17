@@ -29,21 +29,22 @@ export const GithubTrends: FC<propsType> = () => {
         <List
           filters={[
             <Filter
-              key={0}
-              value={lang}
-              setValue={setLang}
-              items={programmingLanguages}
-              label="Spoken Language"
-              hasInput={true}
-            />,
-            <Filter
               key={1}
               value={sLang}
               setValue={setSLang}
               items={spokenLanguages}
+              label="Spoken Language"
+              hasInput={true}
+            />,
+            <Filter
+              key={0}
+              value={lang}
+              setValue={setLang}
+              items={programmingLanguages}
               label="Language"
               hasInput={true}
             />,
+
             <Filter key={2} value={range} setValue={setRange} items={dateRange} label="Date range" hasInput={false} />,
           ]}
           activeBtn={0}
