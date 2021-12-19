@@ -8,6 +8,8 @@ import { Link as Link } from 'react-router-dom'
 type propsType = {
   filters?: ReactNode[] | []
   activeBtn: number
+  // items: any[] | undefined
+  items: any
 }
 
 export const List: FC<propsType> = ({ filters, activeBtn }) => {

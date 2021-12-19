@@ -12,8 +12,12 @@ const Router: FC<propsType> = () => {
       <Header2 />
       <Content>
         <Routes>
-          <Route path="/" element={<GithubTrends />} />
-          <Route path="/developers" element={<GithubTrendsDevelopers />} />
+          <Route path="/" element={<GithubTrends />}>
+            <Route path="/:language" element={<GithubTrends />} />
+          </Route>
+          <Route path="/developers" element={<GithubTrendsDevelopers />}>
+            <Route path="/developers/:language" element={<GithubTrendsDevelopers />} />
+          </Route>
           <Route path="/*" element={<h1>Not Found</h1>} />
         </Routes>
       </Content>

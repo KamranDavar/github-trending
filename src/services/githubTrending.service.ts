@@ -1,24 +1,26 @@
 import ghtClient from './githubTrending.client'
 
-type langType = string | undefined
+type langType = string | undefined | null
 
 interface developersQueryParamsType {
-  since?: string
+  since?: langType
   language?: langType
 }
 
 interface repositoriesQueryParamsType {
-  since?: string
+  since?: langType
   spoken_language_code?: langType
   language?: langType
 }
 
 export const GithubTrendingService = {
-  getDevelopers(queryParams: developersQueryParamsType) {
-    return ghtClient.get('/developers', { params: queryParams })
+  getDevelopers(lang: langType, queryParams: developersQueryParamsType) {
+    const url = lang ? '/developers/' + lang : '/developers/'
+    return ghtClient.get(url, { params: queryParams })
   },
-  getRepositories(queryParams: repositoriesQueryParamsType) {
-    return ghtClient.get('/repositories', { params: queryParams })
+  getRepositories(lang: langType, queryParams: repositoriesQueryParamsType) {
+    const url = lang ? '/repositories/' + lang : '/repositories/'
+    return ghtClient.get(url, { params: queryParams })
   },
   // getLanguages() {
   //   return ghtClient.get('/languages')

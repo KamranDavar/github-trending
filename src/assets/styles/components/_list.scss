@@ -14,7 +14,7 @@
   .header {
     display: flex;
     flex-wrap: wrap;
-    background-color: #12161B;
+    background-color: #12161b;
 
     .filters {
       display: flex;
@@ -30,34 +30,30 @@
 
     .btn-outline-light {
       border-color: $gray-500;
-
     }
-      .left {
-    border-bottom-right-radius: 0;
-    border-top-right-radius: 0;
-
-  }
+    .left {
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+    }
     .right {
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
-
-  }
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+    }
 
     .dropdown-menu {
       .input-container {
         border: solid 1px $gray-600;
-
       }
 
       .form-control {
-        background-color: #12161B;
+        background-color: #12161b;
         margin: 0.5rem;
         color: $gray-300;
         border: solid 1px $gray-600;
         border-radius: 0.4rem;
       }
 
-      background-color: #0A0E12;
+      background-color: #0a0e12;
       color: $gray-300;
 
       .dropdown-item {
