@@ -10,7 +10,7 @@ type propsType = {
   hasInput?: true | false
 }
 
-export const Filter: FC<propsType> = ({ value, setValue, items, label, hasInput }) => {
+export const Filter: FC<propsType> = ({ value, setValue, items, label, hasInput = true }) => {
   const [search, setSearch] = useState<any>()
 
   const currentItemName = items.find((item) => item.value === value)
