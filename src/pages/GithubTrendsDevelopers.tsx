@@ -21,8 +21,8 @@ export const GithubTrendsDevelopers: FC<propsType> = () => {
   const programmingLanguage = language || ''
   const since = searchParams.get('since') || 'daily'
 
-  const query = useQuery(['Repositories', programmingLanguage, since], () =>
-    GithubTrendingService.getRepositories(programmingLanguage, { since })
+  const query = useQuery(['Developers', programmingLanguage, since], () =>
+    GithubTrendingService.getDevelopers(programmingLanguage, { since })
   )
 
   return (
@@ -30,12 +30,12 @@ export const GithubTrendsDevelopers: FC<propsType> = () => {
       <Banner subTitle="These are the developers building the hot tools today." />
       <List
         activeBtn={1}
-        items={query.data}
+        items={query.data?.data}
         filters={[
           <Filter
             key={0}
             value={programmingLanguage}
-            setValue={(value: string) => navigate(`/${value}?${searchParams.toString()}`, { replace: true })}
+            setValue={(value: string) => navigate(`/developers/${value}?${searchParams.toString()}`, { replace: true })}
             items={programmingLanguages}
             label="Language"
             hasInput={true}
