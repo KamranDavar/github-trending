@@ -7,7 +7,7 @@ type propsType = {
   setValue: any
   items: { label: string; value: string }[]
   label: string
-  hasInput: true | false
+  hasInput?: true | false
 }
 
 export const Filter: FC<propsType> = ({ value, setValue, items, label, hasInput }) => {

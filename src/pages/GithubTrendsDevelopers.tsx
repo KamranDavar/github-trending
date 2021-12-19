@@ -1,52 +1,69 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC } from 'react'
 import { Banner, Filter, List } from '../components'
-import { dateRange, programmingLanguages } from '../utilities/staticData'
-import { useQuery } from 'react-query'
 import { GithubTrendingService } from '../services/githubTrending.service'
-import { useNavigate, useSearchParams, useParams } from 'react-router-dom'
+import { useQuery } from 'react-query'
+import { ListSkeleton } from '../components/ListSkeleton'
+import { dateRange, programmingLanguages, spokenLanguages } from '../utilities/staticData'
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
 
 type propsType = any
 
-export const GithubTrendsDevelopers: FC<propsType> = () => {
-  const [lang, setLang] = useState('javascript')
-  const [range, setRange] = useState('daily')
-  const [searchParams, setSearchParams] = useSearchParams()
-  const navigate = useNavigate()
-  const params = useParams()
-  const newSearchParams = new URLSearchParams(searchParams)
+export const GithubTrends: FC<propsType> = () => {
 
-  useEffect(() => {
-    navigate(`${lang}`)
-  }, [lang])
-  useEffect(() => {
-    setSearchParams({ since: range })
-  }, [range])
+  const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const { language } = useParams();
 
-  console.log('params:', params)
-  console.log('searchParams:', searchParams)
-  console.log('newSearchParams:', newSearchParams)
-  const query = useQuery(['Repositories', lang, range], () =>
-    GithubTrendingService.getRepositories(lang, { since: range })
-  )
+  const onChangeFilter = (name: string, value: string) => {
+    searchParams.set(name, value);
+    setSearchParams(searchParams, { replace: true });
+  };
+
+  const programmingLanguage = language || "";
+  const spokenLanguage = searchParams.get("spoken_language_code") || "en";
+  const since = searchParams.get("since") || "daily";
+
+  const query = useQuery(["Repositories", programmingLanguage, spokenLanguage, since], () =>
+    GithubTrendingService.getRepositories(programmingLanguage, {
+      spoken_language_code: spokenLanguage,
+      since: since
+    })
+  );
 
   return (
     <div className="gh-trends">
-      <Banner subTitle="These are the developers building the hot tools today." />
-      <List
-        activeBtn={1}
-        items={query.data}
-        filters={[
-          <Filter
-            key={0}
-            value={lang}
-            setValue={setLang}
-            items={programmingLanguages}
-            label="Language"
-            hasInput={true}
-          />,
-          <Filter key={2} value={range} setValue={setRange} items={dateRange} label="Date range" hasInput={false} />,
-        ]}
-      />
+      <Banner subTitle="See what the GitHub community is most excited about today." />
+      {query.isLoading ? (
+        <ListSkeleton />
+      ) : (
+        <List
+          items={query.data}
+          filters={[
+            <Filter
+              key="spoken-language"
+              value={spokenLanguage}
+              setValue={(value: string) => onChangeFilter("spoken_language_code", value)}
+              items={spokenLanguages}
+              label="Spoken Language"
+            />,
+            <Filter
+              key="language"
+              value={programmingLanguage}
+              setValue={(value: string) => navigate(`/${value}?${searchParams.toString()}`, { replace: true })}
+              items={programmingLanguages}
+              label="Language"
+            />,
+            <Filter
+              key="date-range"
+              value={since}
+              setValue={(value: string) => onChangeFilter("since", value)}
+              items={dateRange}
+              label="Date range"
+              hasInput={false} />
+          ]}
+          activeBtn={0}
+        />
+      )}
     </div>
-  )
-}
+  );
+};
