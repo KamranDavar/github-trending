@@ -37,7 +37,7 @@ export const GithubTrends: FC<propsType> = () => {
         <ListSkeleton />
       ) : (
         <List
-          items={query.data}
+          items={query.data?.data}
           filters={[
             <Filter
               key="spoken-language"

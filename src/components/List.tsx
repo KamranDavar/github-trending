@@ -4,15 +4,16 @@ import Container from 'react-bootstrap/Container'
 import ButtonGroup from 'react-bootstrap/ButtonGroup'
 import Button from 'react-bootstrap/Button'
 import { Link as Link } from 'react-router-dom'
+import { ListItem } from './githubTrending/ListItem'
 
 type propsType = {
   filters?: ReactNode[] | []
   activeBtn: number
-  // items: any[] | undefined
   items: any
 }
 
-export const List: FC<propsType> = ({ filters, activeBtn }) => {
+export const List: FC<propsType> = ({ filters, activeBtn, items }) => {
+  console.log('items: ', items)
   return (
     <div className="list">
       <Container>
@@ -32,10 +33,9 @@ export const List: FC<propsType> = ({ filters, activeBtn }) => {
             </ButtonGroup>
             <div className="filters">{filters}</div>
           </ListGroup.Item>
-          <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-          <ListGroup.Item>Morbi leo risus</ListGroup.Item>
-          <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
-          <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+          {items?.map((item: any, index: number) => (
+            <ListItem item={item} key={index} />
+          ))}
         </ListGroup>
       </Container>
     </div>
