@@ -13,7 +13,7 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <SkeletonTheme baseColor="#202020" highlightColor="#444">
           <Router />
-          <ReactQueryDevtools initialIsOpen={true} />
+          <ReactQueryDevtools initialIsOpen={false} />
         </SkeletonTheme>
       </QueryClientProvider>
       <ToastContainer />
