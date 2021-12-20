@@ -1,0 +1,72 @@
+.header1 {
+  .navbar-brand {
+    font-size: 1.75rem;
+
+    svg {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  .form-control {
+    background-color: #12161b;
+    margin: 0.5rem;
+    color: $gray-300;
+    border: solid 1px $gray-600;
+    border-radius: 0.4rem;
+    padding: 5px 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .responsive-navbar-nav {
+    order: 3;
+  }
+
+  .right-wrapper {
+    display: flex;
+
+    .navbar-text {
+      display: inline;
+    }
+
+    .btn-dark {
+      background-color: inherit;
+      border: 0;
+    }
+
+    .avatar {
+      height: 30px;
+      border-radius: 50%;
+    }
+    .bell{
+      font-size: 1.5rem;
+    }
+
+    @media only screen and (max-width: 992px) {
+      .dropdown-toggle {
+        display: none;
+      }
+    }
+    @media only screen and (min-width: 992px) {
+      order: 4;
+    }
+  }
+
+  .navbar-collapse {
+    padding: 0 1rem;
+    @media only screen and (max-width: 992px) {
+      .form-control {
+        width: 100%;
+      }
+      form, a {
+        border-bottom: 1px solid $gray-500;
+
+      }
+      input {
+        margin-right: 0;
+        margin-left: 0;
+      }
+    }
+  }
+}
+
