@@ -10,17 +10,17 @@ export const Footer: FC<propsType> = () => {
       <Container>
         <AiOutlineGithub />
         <span>© 2021 GitHub, Inc.</span>
-        <a href="/#">Terms</a>
-        <a href="/#">Privacy</a>
-        <a href="/#">Security</a>
-        <a href="/#">Status</a>
-        <a href="/#">Docs</a>
-        <a href="/#">Contact GitHub</a>
-        <a href="/#">Pricing</a>
-        <a href="/#">API</a>
-        <a href="/#">Training</a>
-        <a href="/#">Blog</a>
-        <a href="/#">About</a>
+        <a href="https://github.com/en/github/site-policy/github-terms-of-service">Terms</a>
+        <a href="https://github.com/en/github/site-policy/github-privacy-statement">Privacy</a>
+        <a href="https://github.com/security">Security</a>
+        <a href="https://www.githubstatus.com/">Status</a>
+        <a href="https://docs.github.com/en">Docs</a>
+        <a href="https://github.com/?tags=dotcom-footer">Contact GitHub</a>
+        <a href="https://github.com/pricing">Pricing</a>
+        <a href="https://docs.github.com/en">API</a>
+        <a href="https://services.github.com/">Training</a>
+        <a href="https://github.blog/">Blog</a>
+        <a href="https://github.com/about">About</a>
       </Container>
     </footer>
   )

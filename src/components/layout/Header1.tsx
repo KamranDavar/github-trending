@@ -47,9 +47,9 @@ export const Header1: FC<propsType> = () => {
         </Form>
         <Nav className="me-auto">
           <Nav.Link href="https://github.com/pulls">Pull requests</Nav.Link>
-          <Nav.Link href="#pricing">Issues</Nav.Link>
-          <Nav.Link href="#pricing">Marketplace</Nav.Link>
-          <Nav.Link href="#pricing">Explore</Nav.Link>
+          <Nav.Link href="https://github.com/issues">Issues</Nav.Link>
+          <Nav.Link href="https://github.com/marketplace">Marketplace</Nav.Link>
+          <Nav.Link href="https://github.com/explore">Explore</Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
