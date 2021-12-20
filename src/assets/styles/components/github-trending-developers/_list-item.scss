@@ -12,6 +12,7 @@
   }
 
   .others-container {
+    color: $gray-600;
     display: flex;
     flex-wrap: wrap;
     flex: 1 2;
@@ -28,10 +29,14 @@
     .data {
       flex-direction: column;
       flex: 3;
-
+      font-size: 0.85rem;
       h4 {
         font-size: 1rem;
         font-weight: 700;
+      }
+      .fire{
+        color: orangered;
+        font-size: 1rem;
       }
     }
 

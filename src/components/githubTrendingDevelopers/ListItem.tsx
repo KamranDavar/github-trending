@@ -24,7 +24,7 @@ export const DeveloperListItem: FC<propsType> = ({ item, rowNumber }) => {
           <span className="username">{item.username}</span>
         </div>
         <div className="data">
-          <AiOutlineFire /> POPULAR REPO
+          <AiOutlineFire className="fire" /> POPULAR REPO
           <h4>
             <AiOutlineBook />
             <a href={item.popularRepository.url}>{item.popularRepository.repositoryName}</a>

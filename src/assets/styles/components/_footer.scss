@@ -1,0 +1,26 @@
+footer {
+
+  .container {
+    padding: 4rem 0;
+    border-top: 1px solid $gray-900;
+  }
+
+  span, a, svg {
+    margin-right: 1rem;
+  }
+
+  svg {
+    font-size: 1.5rem;
+    color: $gray-500;
+  }
+
+  span {
+    font-size: 0.75rem;
+    color: $gray-500;
+  }
+
+  span, a {
+    font-size: 0.75rem;
+  }
+}
+
