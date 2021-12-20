@@ -1,11 +1,28 @@
 .header1 {
-  .navbar-brand {
-    font-size: 1.75rem;
+  background-color: #161B22;
+  padding: 0 1rem;
 
+  .navbar-toggler, svg {
+    color: $gray-300;
+  }
+
+  a {
+    color: $gray-300 !important;
+  }
+
+  .navbar-brand {
+    height: 3rem;
+    width: auto;
+    margin-right: 0;
+
+    vertical-align: top;
     svg {
       padding-top: 0;
       padding-bottom: 0;
+      height: 100%;
+      width: 100%;
     }
+
   }
 
   .form-control {
@@ -14,8 +31,9 @@
     color: $gray-300;
     border: solid 1px $gray-600;
     border-radius: 0.4rem;
-    padding: 5px 0.5rem;
-    font-size: 0.9rem;
+    padding: 3px 0.5rem;
+    font-size: 0.8rem;
+    width: 19rem;
   }
 
   .responsive-navbar-nav {
@@ -38,7 +56,8 @@
       height: 30px;
       border-radius: 50%;
     }
-    .bell{
+
+    .bell {
       font-size: 1.5rem;
     }
 

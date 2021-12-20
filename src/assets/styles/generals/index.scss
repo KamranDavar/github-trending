@@ -1,0 +1,18 @@
+
+.btn-light,.btn-outline-light  {
+  background-color: #30363D;
+  color: $gray-300;
+  border-color: $gray-700;
+}
+
+@media (min-width: 768px){
+  .container{
+    max-width:750px;
+  }
+}
+
+@media (min-width: 992px){
+  .container{
+    max-width:970px;
+  }
+}

@@ -4,7 +4,7 @@
   .list-group-item {
     background-color: inherit;
     color: inherit;
-    border-color: $gray-500;
+    border-color: $gray-900;
   }
 
   .react-loading-skeleton {
@@ -15,7 +15,7 @@
     display: flex;
     flex-wrap: wrap;
     background-color: #12161b;
-
+    padding: 1rem;
     .filters {
       display: flex;
       flex-grow: 1;
@@ -28,9 +28,6 @@
       border: 0;
     }
 
-    .btn-outline-light {
-      border-color: $gray-500;
-    }
     .left {
       border-bottom-right-radius: 0;
       border-top-right-radius: 0;

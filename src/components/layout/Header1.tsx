@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import Navbar from 'react-bootstrap/Navbar'
-import { AiOutlineBell, AiOutlineGithub, AiOutlinePlus } from 'react-icons/ai'
+import { AiOutlineBell, AiOutlineGithub, AiOutlinePlus, AiOutlineMenu } from 'react-icons/ai'
 import FormControl from 'react-bootstrap/FormControl'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
@@ -12,8 +12,10 @@ type propsType = any
 
 export const Header1: FC<propsType> = () => {
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="header1">
-      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+    <Navbar collapseOnSelect expand="lg" bg="dark" className="header1">
+      <Navbar.Toggle aria-controls="responsive-navbar-nav">
+        <AiOutlineMenu />
+      </Navbar.Toggle>
 
       <Navbar.Brand href="https://github.com/">
         <AiOutlineGithub />

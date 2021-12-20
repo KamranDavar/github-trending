@@ -1,0 +1,33 @@
+.header2 {
+  .container {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+  }
+
+  .nav-tabs {
+    background-color: initial;
+    border: none;
+
+    .nav-link.active, .nav-item.show .nav-link {
+      color: $gray-300;
+      background-color: initial;
+      border: none;
+      border-bottom: 3px solid $primary;
+    }
+
+    .nav-link {
+      color: $gray-300;
+    }
+  }
+
+  @media screen and (max-width: 992px) {
+    .container {
+      justify-content: center;
+    }
+    .sponsors {
+      display: none;
+    }
+  }
+}
+
