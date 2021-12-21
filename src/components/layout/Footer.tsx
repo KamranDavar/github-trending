@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import Container from 'react-bootstrap/Container'
 import { AiOutlineGithub } from 'react-icons/ai'
 
-type propsType = any
+type propsType = Record<string, never>
 
 export const Footer: FC<propsType> = () => {
   return (

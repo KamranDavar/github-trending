@@ -3,7 +3,7 @@ import Skeleton from 'react-loading-skeleton'
 import Container from 'react-bootstrap/Container'
 import ListGroup from 'react-bootstrap/ListGroup'
 
-type propsType = any
+type propsType = Record<string, never>
 
 export const ListSkeleton: FC<propsType> = () => {
   return (

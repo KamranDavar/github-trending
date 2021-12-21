@@ -4,7 +4,7 @@ import { GithubTrends, GithubTrendsDevelopers } from '../pages'
 import { ValidateParams } from './ValidateParams'
 import { Layout } from '../components/layout'
 
-type propsType = any
+type propsType = Record<string, never>
 
 const Router: FC<propsType> = () => {
   const Trends = (

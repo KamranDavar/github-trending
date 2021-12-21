@@ -8,7 +8,7 @@ import Form from 'react-bootstrap/Form'
 import DropdownButton from 'react-bootstrap/DropdownButton'
 
 type propsType = {
-  item: any
+  item: Record<string, any>
 }
 
 export const ListItem: FC<propsType> = ({ item }) => {

@@ -8,7 +8,7 @@ import Dropdown from 'react-bootstrap/Dropdown'
 import DropdownButton from 'react-bootstrap/DropdownButton'
 import Nav from 'react-bootstrap/Nav'
 
-type propsType = any
+type propsType = Record<string, never>
 
 export const Header1: FC<propsType> = () => {
   return (

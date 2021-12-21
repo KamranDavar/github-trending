@@ -7,22 +7,22 @@ import { dateRange, programmingLanguages, spokenLanguages } from '../utilities/s
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
-type propsType = any
+type propsType = Record<string, never>
 
 export const GithubTrends: FC<propsType> = () => {
   const navigate = useNavigate()
   const [searchParams, setSearchParams] = useSearchParams()
 
-  const { language } = useParams()
+  const language: string | undefined = useParams().language
 
   const onChangeFilter = (name: string, value: string) => {
     searchParams.set(name, value)
     setSearchParams(searchParams, { replace: true })
   }
 
-  const programmingLanguage = language || ''
-  const spokenLanguage = searchParams.get('spoken_language_code') || 'en'
-  const since = searchParams.get('since') || 'daily'
+  const programmingLanguage: string = language || ''
+  const spokenLanguage: string = searchParams.get('spoken_language_code') || 'en'
+  const since: string = searchParams.get('since') || 'daily'
 
   const query = useQuery(
     ['Repositories', programmingLanguage, spokenLanguage, since],

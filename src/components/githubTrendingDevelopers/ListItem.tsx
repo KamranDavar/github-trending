@@ -4,7 +4,7 @@ import { AiOutlineFire, AiOutlineBook } from 'react-icons/ai'
 import Button from 'react-bootstrap/Button'
 
 type propsType = {
-  item: any
+  item: Record<string, any>
   key: number
   rowNumber: number
 }

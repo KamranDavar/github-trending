@@ -11,7 +11,7 @@ type propsType = {
 }
 
 export const Filter: FC<propsType> = ({ value, setValue, items, label, hasInput = true }) => {
-  const [search, setSearch] = useState<any>()
+  const [search, setSearch] = useState<string | undefined>()
 
   const currentItemName = items.find((item) => item.value === value)
   items = search ? items.filter((item) => item.label.toLowerCase().includes(search.toLowerCase())) : items

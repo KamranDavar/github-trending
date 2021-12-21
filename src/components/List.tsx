@@ -10,7 +10,7 @@ import { DeveloperListItem } from './githubTrendingDevelopers/ListItem'
 type propsType = {
   filters?: ReactNode[] | []
   activeBtn: number
-  items: any
+  items: Record<string, any>[]
 }
 
 export const List: FC<propsType> = ({ filters, activeBtn, items }) => {

@@ -3,7 +3,7 @@ import Nav from 'react-bootstrap/Nav'
 import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
 
-type propsType = any
+type propsType = Record<string, never>
 
 export const Header2: FC<propsType> = () => {
   return (

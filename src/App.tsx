@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import Router from './routes'
 import { ToastContainer } from 'react-toastify'
 import { QueryClient, QueryClientProvider } from 'react-query'
@@ -7,7 +7,7 @@ import { ReactQueryDevtools } from 'react-query/devtools'
 
 const queryClient = new QueryClient()
 
-function App() {
+const App: FC<Record<string, never>> = () => {
   return (
     <div className="app">
       <QueryClientProvider client={queryClient}>
