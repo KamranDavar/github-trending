@@ -5,6 +5,7 @@ import { useQuery } from 'react-query'
 import { ListSkeleton } from '../components/ListSkeleton'
 import { dateRange, programmingLanguages, spokenLanguages } from '../utilities/staticData'
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 type propsType = any
 
@@ -23,11 +24,14 @@ export const GithubTrends: FC<propsType> = () => {
   const spokenLanguage = searchParams.get('spoken_language_code') || 'en'
   const since = searchParams.get('since') || 'daily'
 
-  const query = useQuery(['Repositories', programmingLanguage, spokenLanguage, since], () =>
-    GithubTrendingService.getRepositories(programmingLanguage, {
-      spoken_language_code: spokenLanguage,
-      since: since,
-    })
+  const query = useQuery(
+    ['Repositories', programmingLanguage, spokenLanguage, since],
+    () =>
+      GithubTrendingService.getRepositories(programmingLanguage, {
+        spoken_language_code: spokenLanguage,
+        since: since,
+      }),
+    { onError: (error: any) => toast.error(`Something went wrong: ${error.message}`) }
   )
 
   return (

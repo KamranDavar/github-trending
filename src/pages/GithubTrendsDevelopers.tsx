@@ -4,6 +4,7 @@ import { dateRange, programmingLanguages } from '../utilities/staticData'
 import { useQuery } from 'react-query'
 import { GithubTrendingService } from '../services/githubTrending.service'
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 type propsType = any
 
@@ -21,8 +22,10 @@ export const GithubTrendsDevelopers: FC<propsType> = () => {
   const programmingLanguage = language || ''
   const since = searchParams.get('since') || 'daily'
 
-  const query = useQuery(['Developers', programmingLanguage, since], () =>
-    GithubTrendingService.getDevelopers(programmingLanguage, { since })
+  const query = useQuery(
+    ['Developers', programmingLanguage, since],
+    () => GithubTrendingService.getDevelopers(programmingLanguage, { since }),
+    { onError: (error: any) => toast.error(`Something went wrong: ${error.message}`) }
   )
 
   return (

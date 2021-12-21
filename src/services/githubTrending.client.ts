@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { toast } from 'react-toastify'
 
 const githubTrendingClient = axios.create({
   baseURL: 'https://gh-trending-api.herokuapp.com',
@@ -13,7 +12,6 @@ githubTrendingClient.interceptors.response.use(
     return res
   },
   (err) => {
-    toast.warn(err.message)
     return Promise.reject(err)
   }
 )
