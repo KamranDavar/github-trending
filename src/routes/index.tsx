@@ -1,12 +1,12 @@
 import React, { FC } from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import { GithubTrends, GithubTrendsDevelopers } from '../pages'
 import { ValidateParams } from './ValidateParams'
 import { Layout } from '../components/layout'
 
 type propsType = Record<string, never>
 
-const Router: FC<propsType> = () => {
+const myRouter: FC<propsType> = () => {
   const Trends = (
     <ValidateParams>
       <GithubTrends />
@@ -20,19 +20,17 @@ const Router: FC<propsType> = () => {
   )
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route path="developers">
-            <Route path=":language" element={DevelopersTrends} />
-            <Route index element={DevelopersTrends} />
-          </Route>
-          <Route path=":language" element={Trends} />
-          <Route index element={Trends} />
-          <Route path="*" element={<h1>Not Found</h1>} />
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route path="developers">
+          <Route path=":language" element={DevelopersTrends} />
+          <Route index element={DevelopersTrends} />
         </Route>
-      </Routes>
-    </BrowserRouter>
+        <Route path=":language" element={Trends} />
+        <Route index element={Trends} />
+        <Route path="*" element={<h1>Not Found</h1>} />
+      </Route>
+    </Routes>
   )
 }
-export default Router
+export default myRouter

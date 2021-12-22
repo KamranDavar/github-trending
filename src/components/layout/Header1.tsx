@@ -12,7 +12,7 @@ type propsType = Record<string, never>
 
 export const Header1: FC<propsType> = () => {
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" className="header1">
+    <Navbar collapseOnSelect expand="lg" bg="dark" className="header1" data-testid="header1">
       <Navbar.Toggle aria-controls="responsive-navbar-nav">
         <AiOutlineMenu />
       </Navbar.Toggle>

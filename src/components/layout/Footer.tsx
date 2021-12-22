@@ -6,7 +6,7 @@ type propsType = Record<string, never>
 
 export const Footer: FC<propsType> = () => {
   return (
-    <footer>
+    <footer data-testid="footer">
       <Container>
         <AiOutlineGithub />
         <span>© 2021 GitHub, Inc.</span>

@@ -7,7 +7,7 @@ type propsType = Record<string, never>
 
 export const Header2: FC<propsType> = () => {
   return (
-    <div className="header2">
+    <div className="header2" data-testid="header2">
       <Container>
         <Nav variant="tabs" activeKey="trending">
           <Nav.Item>

@@ -5,7 +5,6 @@ import { useQuery } from 'react-query'
 import { GithubTrendingService } from '../services/githubTrending.service'
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import { ListSkeleton } from '../components/ListSkeleton'
 
 type propsType = Record<string, never>
 
@@ -32,34 +31,31 @@ export const GithubTrendsDevelopers: FC<propsType> = () => {
   return (
     <div className="gh-trends">
       <Banner subTitle="These are the developers building the hot tools today." />
-      {query.isLoading ? (
-        <ListSkeleton />
-      ) : (
-        <List
-          activeBtn={1}
-          items={query.data?.data}
-          filters={[
-            <Filter
-              key={0}
-              value={programmingLanguage}
-              setValue={(value: string) =>
-                navigate(`/developers/${value}?${searchParams.toString()}`, { replace: true })
-              }
-              items={programmingLanguages}
-              label="Language"
-              hasInput={true}
-            />,
-            <Filter
-              key={2}
-              value={since}
-              setValue={(value: string) => onChangeFilter('since', value)}
-              items={dateRange}
-              label="Date range"
-              hasInput={false}
-            />,
-          ]}
-        />
-      )}
+
+      <List
+        activeBtn={1}
+        items={query.data?.data}
+        loading={query.isLoading}
+        filters={[
+          <Filter
+            key={0}
+            value={programmingLanguage}
+            setValue={(value: string) => navigate(`/developers/${value}?${searchParams.toString()}`, { replace: true })}
+            items={programmingLanguages}
+            label="Language"
+            hasInput={true}
+          />,
+          <Filter
+            key={2}
+            value={since}
+            setValue={(value: string) => onChangeFilter('since', value)}
+            items={dateRange}
+            label="Date range"
+            hasInput={false}
+          />,
+        ]}
+        data-testid="dev-list"
+      />
     </div>
   )
 }
