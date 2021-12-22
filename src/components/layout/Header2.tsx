@@ -32,7 +32,7 @@ export const Header2: FC<propsType> = () => {
           </Nav.Item>
         </Nav>
         <Button variant="outline-light" className="sponsors">
-          GitHub Sponsors
+          Get Email updates
         </Button>
       </Container>
     </div>
